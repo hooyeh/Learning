@@ -21,9 +21,16 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+tmp = Inf*ones(1,3);
+
 for i = 1:length(X)
-    [tmp, idx(i)] = min(norm(X(i, :)-
     for j = 1:K
+        tmp(j) = norm(X(i, :) - centroids(j, :));
+    end
+    [trash, idx(i)] = min(tmp);
+    
+end
+    %for j = 1:K
         
 
 
