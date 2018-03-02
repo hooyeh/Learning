@@ -52,7 +52,15 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
-
+      for i = 1:m
+          % Compute train/cross validation errors using training examples 
+          error_train(i) = norm(X(1:i, :)*trainLinearReg(X(1:i, :), y(1:i), lambda) - y(1:i))^2/2/i;
+          error_val(i) = norm(Xval*trainLinearReg(X(1:i, :), y(1:i), lambda) - yval)^2/2/length(yval);
+          % X(1:i, :) and y(1:i), storing the result in 
+          % error_train(i) and error_val(i)
+          ....
+          
+      end
 
 
 
